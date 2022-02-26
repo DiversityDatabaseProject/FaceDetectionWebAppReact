@@ -4,7 +4,7 @@ import * as tf from "@tensorflow/tfjs";
 import Webcam from "react-webcam";
 import "./App.css";
 import { nextFrame } from "@tensorflow/tfjs";
-// 2. TODO - Import drawing utility here
+// 2. Import drawing utility here
 import {drawRect} from "./utilities"; 
 
 function App() {
@@ -13,10 +13,7 @@ function App() {
 
   // Main function
   const runCoco = async () => {
-    // 3. TODO - Load network 
-    //const net = await tf.loadGraphModel('https://livelong.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json')
-    
-    //console.log("ANO TOOOOO??? "+process.env.PUBLIC_URL + 'model/model2.json')
+    // 3. Load network 
     const net = await tf.loadGraphModel(process.env.PUBLIC_URL + 'model/model.json')
     // Loop and detect hands
     setInterval(() => {
@@ -44,7 +41,7 @@ function App() {
       canvasRef.current.width = videoWidth;
       canvasRef.current.height = videoHeight;
 
-      // 4. TODO - Make Detections
+      // 4. Make Detections
       const img = tf.browser.fromPixels(video)
       const resized = tf.image.resizeBilinear(img, [640,480])
       const casted = resized.cast('int32')
@@ -60,8 +57,7 @@ function App() {
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
 
-      // 5. TODO - Update drawing utility
-      // drawSomething(obj, ctx)  
+      // 5. Update drawing utility
       requestAnimationFrame(()=>{drawRect(boxes[0], classes[0], scores[0], 0.9, videoWidth, videoHeight, ctx)}); 
 
       tf.dispose(img)

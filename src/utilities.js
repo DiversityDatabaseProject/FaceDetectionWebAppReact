@@ -18,9 +18,10 @@ export const drawRect = (boxes, classes, scores, threshold, imgWidth, imgHeight,
             
             // Set styling
             //ctx.strokeStyle = labelMap[text]['color']
+			//Just using this color list to make some fancy color changes on the bbox - Maria
             var bgcolorlist=new Array("#92a8d1", "034f84", "#f7cac9", "#f7786b")
             ctx.strokeStyle = bgcolorlist[Math.floor(Math.random()*bgcolorlist.length)];
-            //context.fillStyle = bgcolorlist[Math.floor(Math.random()*bgcolorlist.length)];
+            
             ctx.lineWidth = 10
             ctx.fillStyle = 'white'
             ctx.font = '30px Arial'         
