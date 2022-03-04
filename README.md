@@ -16,5 +16,6 @@
 <b>Step 10.</b> Update the labelmap inside of utilities.js with your labels.</a>
 <br/><br/>
 <b>Step 11.</b> Start the app by running npm run dev.</a>
+<pre>npm install serve --s</pre> (do this only one time)
 <pre>npm run dev</pre>
 <br/><br/>
