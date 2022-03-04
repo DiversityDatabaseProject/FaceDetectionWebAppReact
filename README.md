@@ -18,3 +18,6 @@
 <b>Step 11.</b> Start the app by running npm run dev.</a>
 <pre>npm run dev</pre>
 <br/><br/>
+
+## To view the app on Heroku
+Go to https://diversity-face-detection.herokuapp.com/
