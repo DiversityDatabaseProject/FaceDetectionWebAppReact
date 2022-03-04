@@ -5,7 +5,7 @@ import Webcam from "react-webcam";
 import "./App.css";
 import { nextFrame } from "@tensorflow/tfjs";
 // 2. Import drawing utility here
-import {drawRect} from "./utilities"; 
+import {drawRect} from "./utilities";
 
 function App() {
   const webcamRef = useRef(null);
@@ -13,7 +13,7 @@ function App() {
 
   // Main function
   const runCoco = async () => {
-    // 3. Load network 
+    // 3. Load network
     const net = await tf.loadGraphModel(process.env.PUBLIC_URL + 'model/model.json')
     // Loop and detect hands
     setInterval(() => {
@@ -47,18 +47,18 @@ function App() {
       const casted = resized.cast('int32')
       const expanded = casted.expandDims(0)
       const obj = await net.executeAsync(expanded)
-      
-      console.log("app ko, eto ba yun ??? " + await obj)
 
-      const boxes = await obj[6].array()
-      const classes = await obj[4].array()
-      const scores = await obj[1].array()
-    
+      //console.log("object " + await obj)
+
+      const boxes = await obj[1].array()
+      const classes = await obj[6].array()
+      const scores = await obj[7].array()
+
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
 
       // 5. Update drawing utility
-      requestAnimationFrame(()=>{drawRect(boxes[0], classes[0], scores[0], 0.9, videoWidth, videoHeight, ctx)}); 
+      requestAnimationFrame(()=>{drawRect(boxes[0], classes[0], scores[0], 0.9, videoWidth, videoHeight, ctx)});
 
       tf.dispose(img)
       tf.dispose(resized)
@@ -76,7 +76,7 @@ function App() {
       <header className="App-header">
         <Webcam
           ref={webcamRef}
-          muted={true} 
+          muted={true}
           style={{
             position: "absolute",
             marginLeft: "auto",
