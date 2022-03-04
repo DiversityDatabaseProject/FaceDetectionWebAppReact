@@ -9,13 +9,12 @@
 <b>Step 2.</b> Install Node https://nodejs.org/en/
 <br/><br/>
 <b>Step 3.</b> Install App Depdendencies
-<pre>npm install</pre>
+<pre>npm install serve --</pre>
 <br/><br/>
 <b>Step 4.</b> To use your own model, update the files in \public\model with your corresponding tfjs model (model.json) and shard files (*.bin).
 <br/><br/>
 <b>Step 10.</b> Update the labelmap inside of utilities.js with your labels.</a>
 <br/><br/>
 <b>Step 11.</b> Start the app by running npm run dev.</a>
-<pre>npm install serve --s</pre> (do this only one time)
 <pre>npm run dev</pre>
 <br/><br/>
